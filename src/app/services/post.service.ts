@@ -55,10 +55,10 @@ export class PostService {
 
   }
 
-  deletePost(pIndice: number) {
+  /* deletePost(pIndice: number) {
     this.posts.splice(pIndice, 1);
     localStorage.setItem('posts', JSON.stringify(this.posts));
-  }
+  } */
 
 
 }

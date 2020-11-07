@@ -36,14 +36,14 @@
 
         </select>
 
-        <img src="../../assets/image/imagen2.jpg" alt="" width="200" class="mb-5">
+        <img src="../../assets/image/imagen2.jpg" alt="" width="200" class="mb-5 ml-2 mt-2">
 
     </aside>
 
     <div class="col-8">
         <div class="row">
 
-            <div class="col-5 card d-inline m-2" style="width: 18rem;"
+            <div class="col-5 card d-inline m-1" style="width: 18rem;"
                 *ngFor="let post of arrPosts; let indice = index">
                 <p class="">{{post.categoria | uppercase}}</p>
                 <img [src]="post.imagen" class="card-img-top" alt="" width="100" height="200">
@@ -52,8 +52,8 @@
                     <h5 class="text-right"> 📝 {{post.autor}}</h5>
                     <p class="card-text"> {{post.texto}}</p>
                     <p class="mr-3">Publicado: {{post.fecha}}</p>
-                    <button class="btn btn-outline-success form-control" (click)="onClickDelete(indice)"> Borrar
-                    </button>
+                    <!-- <button class="btn btn-outline-success form-control" (click)="onClickDelete(indice)"> Borrar
+                    </button> -->
                 </div>
             </div>
         </div>
