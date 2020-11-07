@@ -40,13 +40,24 @@ export class PostService {
 
   getAllPosts(): Promise<Post[]> {
     return new Promise((resolve, reject) => {
-      resolve(this.posts)
+      resolve(this.posts);
     })
 
   }
 
-  getPostsByCategoria(cat) {
+  getPostsByCategory(cat): Promise<Post[]> {
+    return new Promise((resolve, reject) => {
+      const arrFilterCategory = this.posts.filter(post => {
+        return post.categoria === cat
+      });
+      resolve(arrFilterCategory);
+    })
 
+  }
+
+  deletePost(pIndice: number) {
+    this.posts.splice(pIndice, 1);
+    localStorage.setItem('posts', JSON.stringify(this.posts));
   }
 
 

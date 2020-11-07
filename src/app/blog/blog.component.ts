@@ -19,4 +19,8 @@ export class BlogComponent implements OnInit {
       })
   }
 
+  onClickDelete(pIndice: number) {
+    this.postService.deletePost(pIndice);
+  }
+
 }
