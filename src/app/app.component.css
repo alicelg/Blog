@@ -2,5 +2,20 @@
 
 #titulo{
     font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    margin: 0;
+}
+
+small{
+    font-size: 20px;
+}
+
+nav{
+    background: #7C160C;
+}
+
+footer{
+    background: #7C160C;
+   
 }
 
