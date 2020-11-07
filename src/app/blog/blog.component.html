@@ -1,1 +1,8 @@
-<p>blog works!</p>
+<div *ngFor="let post of arrPosts; let indice = index">
+    <h3>{{post.titulo}}</h3>
+    <h4>{{post.autor}}</h4>
+    <img [src]="post.imagen" alt="">
+    <p>{{post.texto}}</p>
+    <span>{{post.fecha}}</span>
+    <p>{{post.categoria}}</p>
+</div>
