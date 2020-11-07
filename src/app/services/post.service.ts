@@ -20,7 +20,7 @@ export class PostService {
 
   }
 
-  agregarPost(pPost: Post): Promise<string> {
+  addPost(pPost: Post): Promise<string> {
     return new Promise((resolve, rejec) => {
       this.arrPosts.push(pPost);
 

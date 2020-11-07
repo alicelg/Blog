@@ -25,4 +25,8 @@ export class NewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  async onSubmit() {
+    await this.postService.addPost(this.formPost.value);
+  }
+
 }
