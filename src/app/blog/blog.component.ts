@@ -19,9 +19,9 @@ export class BlogComponent implements OnInit {
       })
   }
 
-  /* onClickDelete(pIndice: number) {
+  onClickDelete(pIndice: number) {
     this.postService.deletePost(pIndice);
-  } */
+  }
 
   async onChangeCategory($event) {
     if ($event.target.value === 'todos') {

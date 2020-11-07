@@ -10,6 +10,7 @@ import { PostService } from '../services/post.service';
 export class NewComponent implements OnInit {
 
   formPost: FormGroup;
+  idPost: number;
 
   constructor(private postService: PostService) {
     this.formPost = new FormGroup({
@@ -20,14 +21,19 @@ export class NewComponent implements OnInit {
       fecha: new FormControl(),
       categoria: new FormControl(),
     })
+    this.idPost = JSON.parse(localStorage.getItem('posts')) ? (JSON.parse(localStorage.getItem('posts')).slice(-1)[0].id + 1) : 1;
+    /*     console.log(this.idPost);
+     */
   }
 
   ngOnInit(): void {
   }
 
   async onSubmit() {
-    await this.postService.addPost(this.formPost.value);
+
+    await this.postService.addPost(this.formPost.value, this.idPost);
     console.log(this.formPost.value);
+    this.idPost++
 
     this.formPost.reset();
 

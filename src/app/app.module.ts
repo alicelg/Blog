@@ -7,13 +7,15 @@ import { BlogComponent } from './blog/blog.component';
 import { NewComponent } from './new/new.component';
 import { ErrorComponent } from './error/error.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetallePostComponent } from './detalle-post/detalle-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogComponent,
     NewComponent,
-    ErrorComponent
+    ErrorComponent,
+    DetallePostComponent
   ],
   imports: [
     BrowserModule,

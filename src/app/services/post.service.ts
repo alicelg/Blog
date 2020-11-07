@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface Post {
+  id: number;
   titulo: string;
   texto: string;
   autor: string;
@@ -25,11 +26,12 @@ export class PostService {
     }
   }
 
-  addPost(Post): Promise<string> {
+  addPost(post: Post, id): Promise<string> {
     return new Promise((resolve, reject) => {
-      console.log(Post);
+      console.log(post);
+      post.id = id;
       console.log(this.posts);
-      this.posts.push(Post);
+      this.posts.push(post);
 
 
       localStorage.setItem('posts', JSON.stringify(this.posts));
@@ -42,7 +44,6 @@ export class PostService {
     return new Promise((resolve, reject) => {
       resolve(this.posts);
     })
-
   }
 
   getPostsByCategory(cat): Promise<Post[]> {
@@ -55,10 +56,16 @@ export class PostService {
 
   }
 
-  /* deletePost(pIndice: number) {
+  deletePost(pIndice: number) {
     this.posts.splice(pIndice, 1);
     localStorage.setItem('posts', JSON.stringify(this.posts));
-  } */
+  }
+
+  getById(pId: number): Promise<Post> {
+    return new Promise((resolve, reject) => {
+      resolve(this.posts.find(post => post.id === pId))
+    })
+  }
 
 
 }
