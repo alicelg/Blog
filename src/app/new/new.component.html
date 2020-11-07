@@ -1,37 +1,80 @@
-<form [formGroup]="formPost" (ngSubmit)="onSubmit()">
+<div class="row">
+    <div class="col-12">
+        <h2 id="titulopost" class="text-center mb-4">Añade tu post</h2>
 
-    <div class="form-group">
-        <label>Titulo</label>
-        <input type="text" class="form-control" formControlName="titulo">
-    </div>
-    <div class="form-group">
-        <label>Texto</label>
-        <input type="text" class="form-control" formControlName="texto">
-    </div>
-    <div class="form-group">
-        <label>Autor</label>
-        <input type="text" class="form-control" formControlName="autor">
-    </div>
-    <div class="form-group">
-        <label>Imagen</label>
-        <input type="url" class="form-control" formControlName="imagen">
-    </div>
-    <div class="form-group">
-        <label>Fecha</label>
-        <input type="date" class="form-control" formControlName="fecha">
-    </div>
-    <div class="form-group">
-        <label>Categoría</label>
-        <select formControlName="categoria">
-            <option value="cultura"> 🎨 Cultura</option>
-            <option value="politica"> 🗣 Política</option>
-            <option value="economia">💰 Economía</option>
-            <option value="historia"> 👣 Historia</option>
-
-        </select>
-    </div>
+        <p>Escribe aquí tu post, el cual te gustaría compartir con nuestra comunidad de estudio. Esta comunidad crece
+            con cada aporte, asimismo los posts son revisados para evitar confusiones o mal uso de este espacio. Nos
+            tomamos nuestro tiempo para leerte y brindar los mejores aportes.
 
 
-    <input type="submit" value="Enviar" class="btn btn-danger form-control">
 
-</form>
+        </p>
+    </div>
+</div>
+<br>
+
+<div class="row">
+
+    <div class="col-4 ml-5">
+
+        <p class="text-center"> Recuerda que nuestras categorias son: <br> 🎨 Cultura, 🗣 Política, 👣 Historia y 💰
+            Economía.</p>
+
+
+        <img src="../../assets/image/imagen.PNG" alt="" width="200" class="mt-2 ml-5">
+
+
+
+
+    </div>
+
+    <div class="col-5 ml-5 mb-3">
+
+        <form [formGroup]="formPost" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <label>Título</label>
+                <input type="text" class="form-control" formControlName="titulo">
+            </div>
+            <div class="form-group">
+                <label>Texto</label>
+                <input type="text" class="form-control" formControlName="texto">
+            </div>
+            <div class="form-group">
+                <label>Autor</label>
+                <input type="text" class="form-control" formControlName="autor">
+            </div>
+            <div class="form-group">
+                <label>Imagen</label>
+                <input type="url" class="form-control" formControlName="imagen">
+            </div>
+            <div class="form-group">
+                <label>Fecha</label>
+                <input type="date" class="form-control" formControlName="fecha">
+            </div>
+            <div class="form-group">
+                <label>Categoría</label>
+                <select formControlName="categoria" class="form-control">
+                    <option value="cultura"> 🎨 Cultura</option>
+                    <option value="politica"> 🗣 Política</option>
+                    <option value="economia">💰 Economía</option>
+                    <option value="historia"> 👣 Historia</option>
+
+                </select>
+            </div>
+
+
+            <input type="submit" value="Enviar" class="btn btn-danger form-control">
+
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mb-5">
+            <p class="mt-5 text-secondary">Condiciones: Al publicar un post en esta comunidad, será de
+                uso publico. Así, los participantes podrán hacer uso del mismo, citandote como fuente.</p>
+        </div>
+
+    </div>
+
+</div>
