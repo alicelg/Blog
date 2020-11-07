@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-new',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComponent implements OnInit {
 
-  constructor() { }
+  formPost: FormGroup;
+
+  constructor(private postService: PostService) {
+    this.formPost = new FormGroup({
+      titulo: new FormControl(),
+      texto: new FormControl(),
+      autor: new FormControl(),
+      imagen: new FormControl(),
+      fecha: new FormControl(),
+      categoria: new FormControl(),
+    })
+  }
 
   ngOnInit(): void {
   }
