@@ -14,13 +14,26 @@ export interface Post {
 })
 export class PostService {
 
-  constructor() { }
+  arrPosts: Post[];
 
-  agregarPost(Post) {
+  constructor() {
 
   }
 
-  gettAllPosts() {
+  agregarPost(pPost: Post): Promise<string> {
+    return new Promise((resolve, rejec) => {
+      this.arrPosts.push(pPost);
+
+      console.log(this.arrPosts);
+
+      localStorage.setItem('arrPosts', JSON.stringify(this.arrPosts));
+
+      resolve('Post añadido correctamente')
+    })
+
+  }
+
+  getAllPosts(): {
 
   }
 
