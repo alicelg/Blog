@@ -23,4 +23,12 @@ export class BlogComponent implements OnInit {
     this.postService.deletePost(pIndice);
   }
 
+  async onChangeCategory($event) {
+    if ($event.target.value === 'todos') {
+      this.arrPosts = await this.postService.getAllPosts();
+    } else {
+      this.arrPosts = await this.postService.getPostsByCategory($event.target.value);
+    }
+  }
+
 }

@@ -1,3 +1,18 @@
+<label> Filtrar Categoria</label>
+<select (change)="onChangeCategory($event)" class="form-control">
+
+    <option value="todos">Todos</option>
+    <option value="cultura">Cultura</option>
+    <option value="politica">Política</option>
+    <option value="economia">Economía</option>
+    <option value="historia">Historia</option>
+    <option value="social">Social</option>
+
+
+</select>
+
+
+
 <div *ngFor="let post of arrPosts; let indice = index">
     <h3>{{post.titulo}}</h3>
     <h4>{{post.autor}}</h4>
