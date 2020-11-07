@@ -31,4 +31,20 @@ export class BlogComponent implements OnInit {
     }
   }
 
+  onClickCultura() {
+
+
+  }
+  onClickPolitica() {
+
+  }
+  onClickEconomia() {
+
+  }
+
+  onClickHistoria() {
+
+  }
+
+
 }
