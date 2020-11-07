@@ -31,17 +31,20 @@
 
     </aside>
 
-    <div class="col-7">
-
-        <div *ngFor="let post of arrPosts; let indice = index">
-            <h3>{{post.titulo}}</h3>
-            <h4>{{post.autor}}</h4>
-            <img [src]="post.imagen" alt="" width="100">
-            <p>{{post.texto}}</p>
-            <span>{{post.fecha}}</span>
-            <p>{{post.categoria}}</p>
-
-            <button (click)="onClickDelete(indice)">Borrar </button>
+    <div class="col-7 d-flex">
+        <div class="col-5 card d-inline m-2" style="width: 18rem;" *ngFor="let post of arrPosts; let indice = index">
+            <img [src]="post.imagen" class="card-img-top" alt="" width="100" height="200">
+            <div class="card-body">
+                <h3 class="card-title">{{post.titulo}}</h3>
+                <h5> {{post.autor}}</h5>
+                <span>{{post.fecha}}</span>
+                <p class="card-text"> {{post.texto}}</p>
+                <p class="d-inline">{{post.categoria | uppercase}}</p>
+                <button class="btn btn-outline-success" (click)="onClickDelete(indice)"> Borrar </button>
+            </div>
         </div>
     </div>
+
+
+
 </div>
