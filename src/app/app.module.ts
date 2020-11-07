@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
 import { NewComponent } from './new/new.component';
 import { ErrorComponent } from './error/error.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ErrorComponent } from './error/error.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
