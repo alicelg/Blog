@@ -27,6 +27,8 @@ export class NewComponent implements OnInit {
 
   async onSubmit() {
     await this.postService.addPost(this.formPost.value);
+    console.log(this.formPost.value);
+
   }
 
 }

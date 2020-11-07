@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
 export interface Post {
-  titulo: string,
-  texto: string,
-  autor: string,
-  imagen: string,
-  fecha: string,
-  categoria: string,
+  titulo: string;
+  texto: string;
+  autor: string;
+  imagen: string;
+  fecha: string;
+  categoria: string;
 }
 
 @Injectable({
@@ -14,30 +14,40 @@ export interface Post {
 })
 export class PostService {
 
-  arrPosts: Post[];
+  posts: Post[];
 
   constructor() {
-
+    /* localStorage */
+    if (localStorage.getItem('posts')) {
+      this.posts = JSON.parse(localStorage.getItem('posts'));
+    } else {
+      this.posts = [];
+    }
   }
 
-  addPost(pPost: Post): Promise<string> {
-    return new Promise((resolve, rejec) => {
-      this.arrPosts.push(pPost);
+  addPost(Post): Promise<string> {
+    return new Promise((resolve, reject) => {
+      console.log(Post);
+      console.log(this.posts);
+      this.posts.push(Post);
 
-      console.log(this.arrPosts);
 
-      localStorage.setItem('arrPosts', JSON.stringify(this.arrPosts));
-
-      resolve('Post añadido correctamente')
+      localStorage.setItem('posts', JSON.stringify(this.posts));
+      resolve('Post añadido correctamente');
     })
 
   }
 
-  getAllPosts(): {
+  getAllPosts(): Promise<Post[]> {
+    return new Promise((resolve, reject) => {
+      resolve(this.posts)
+    })
 
   }
 
   getPostsByCategoria(cat) {
 
   }
+
+
 }
