@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12">
-        <h2 class="text-center">Nuestros posts </h2>
+        <h2 class="text-center tituloblog">Nuestros posts </h2>
         <p>Aquí encontraras los posts que comparten los miembros de nuestra comunidad de estudio. Recuerda que si
             quieres hacer uso de la información debes citar al autor.</p>
     </div>
@@ -43,17 +43,17 @@
     <div class="col-8">
         <div class="row">
 
-            <div class="col-5 card d-inline m-1" style="width: 18rem;" *ngFor="let post of arrPosts; let indice = index"
+            <div class="card d-inline m-1" style="width: 15rem;" *ngFor="let post of arrPosts; let indice = index"
                 [routerLink]="['/blog', post.id]"
                 [ngClass]="{cultura: (post.categoria === 'cultura'), politica: (post.categoria === 'politica'), economia:(post.categoria === 'economia'), historia: (post.categoria ==='historia')}">
-                <p class="">{{post.categoria | uppercase}}</p>
-                <img [src]=" post.imagen" class="card-img-top" alt="" width="70" height="150">
+                <p class="ml-2">{{post.categoria | uppercase}}</p>
+                <img [src]=" post.imagen" class="card-img-top" alt="" width="50" height="150">
                 <div class="card-body">
-                    <h3 class="card-title">{{post.titulo}}</h3>
-                    <h5 class="text-right"> 📝 {{post.autor}}</h5>
+                    <h4 class="card-title">{{post.titulo}}</h4>
+                    <h6 class="text-right"> 📝 {{post.autor}}</h6>
                     <!--  <p class="card-text"> {{post.texto}}</p> -->
                     <p class="card-text text-secondary text-justify">Palabras claves: {{post.claves}}</p>
-                    <p class="mr-3">Publicado: {{post.fecha}}</p>
+                    <small>Publicado: {{post.fecha}}</small>
                     <button class="btn btn-outline-success form-control" (click)="onClickDelete(indice)"> Borrar
                     </button>
                 </div>
@@ -67,7 +67,7 @@
                 la
                 opinión de
                 terceros, seas respetuoso y tu post no dañe a terceros. Para ello intentamos revisar cada uno
-                de los posts, tardamos pero todas son revisadas. </p>
+                de los posts, tardamos pero todos son revisadas. </p>
         </div>
 
     </div>
