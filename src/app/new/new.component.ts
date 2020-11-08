@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../services/post.service';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 @Component({
   selector: 'app-new',
@@ -9,6 +11,7 @@ import { PostService } from '../services/post.service';
 })
 export class NewComponent implements OnInit {
 
+  public Editor = ClassicEditor;
   formPost: FormGroup;
   idPost: number;
 
