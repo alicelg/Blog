@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
 import { NewComponent } from './new/new.component';
 import { ErrorComponent } from './error/error.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetallePostComponent } from './detalle-post/detalle-post.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { DetallePostComponent } from './detalle-post/detalle-post.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CKEditorModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
