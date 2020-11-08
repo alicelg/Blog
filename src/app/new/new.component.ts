@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -20,6 +20,7 @@ export class NewComponent implements OnInit {
       imagen: new FormControl(),
       fecha: new FormControl(),
       categoria: new FormControl(),
+      claves: new FormControl(),
     })
     this.idPost = JSON.parse(localStorage.getItem('posts')) ? (JSON.parse(localStorage.getItem('posts')).slice(-1)[0].id + 1) : 1;
     /*     console.log(this.idPost);

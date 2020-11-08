@@ -8,6 +8,7 @@ export interface Post {
   imagen: string;
   fecha: string;
   categoria: string;
+  claves: string;
 }
 
 @Injectable({
