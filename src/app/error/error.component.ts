@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./error.component.css']
 })
 export class ErrorComponent implements OnInit {
+  vez: number;
 
-  constructor() { }
+  constructor() {
+    this.vez = Math.floor(Math.random() * 2) + 1
+  }
 
   ngOnInit(): void {
   }

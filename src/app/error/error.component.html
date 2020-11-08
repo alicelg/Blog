@@ -1,19 +1,39 @@
-<div class="row mt-3">
+<div class="row mt-3 separateFooter">
 
-    <div class="col-5">
-        <img src="../../assets/image/imagen4.jpg" alt="" width="300">
+    <div class="col-4">
+        <img class="ml-5" src="../../assets/image/imagen4.jpg" alt="" width="250">
     </div>
 
-    <div class="col-7">
-        <div>
-            <img src="../../assets/image/404.png" alt="" width="500">
-        </div>
-        <div>
-            <h2> 🍻 Ahora mismo estamos de fiesta 🍻 </h2>
-            <p>No encontramos lo que estas buscando ... 😉
-            </p>
-        </div>
+    <div class="col-8">
+        <ng-container *ngIf="vez%2==0">
 
+            <div class="text-center">
+                <img src="../../assets/image/404.png" alt="" width="500">
+            </div>
+            <div class="text-center">
+                <h3> 🍻Ahora mismo estamos de fiesta🍻 </h3>
+                <p>No encontramos lo que estas buscando ... 😉
+                </p>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="vez%2!=0">
+            <div>
+                <img src="../../assets/image/404.png" alt="" width="500">
+            </div>
+            <div class="text-center">
+                <h3> 🍻 ¡MARIO! 🍻 </h3>
+                <p>Pero si ésto LO VIMOS AYER 😉
+                </p>
+            </div>
+        </ng-container>
+        <div class="text-center">
+            <button class="btn btn-dark" routerLink="/blog">Blog</button>
+            <button class="btn btn-dark" routerLink="/new">Formulario</button>
+        </div>
     </div>
+
+
+
+
 
 </div>
