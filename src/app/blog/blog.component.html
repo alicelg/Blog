@@ -56,9 +56,10 @@
             <div class="col-md-4 mb-3" *ngFor="let post of arrPosts; let indice = index">
                 <div class="card d-flex mx-auto h-100" [routerLink]="['/blog', post.id]"
                     [ngClass]="{cultura: (post.categoria === 'cultura'), politica: (post.categoria === 'politica'), economia:(post.categoria === 'economia'), historia: (post.categoria ==='historia')}">
-                    <p class="ml-2">{{post.categoria | uppercase}}</p>
-                    <img [src]=" post.imagen" class="card-img-top" alt="" width="50" height="150">
+                    <p class="ml-2 mb-0">{{post.categoria | uppercase}}</p>
                     <div class="card-body d-flex flex-column justify-content-between">
+                        <img [src]=" post.imagen" class="card-img-top" alt="" style="max-height: 100px;
+                        ">
                         <div>
                             <h5 class="card-title">{{post.titulo}}</h5>
                             <h6 class="text-right"> 📝 {{post.autor}}</h6>
