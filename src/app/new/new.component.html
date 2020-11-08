@@ -100,7 +100,7 @@
 
             </div>
 
-            <input type="submit" value="Enviar" class="botonEnviar btn form-control">
+            <input type="submit" value="Enviar" class="botonEnviar btn form-control" [disabled]="!formPost.valid">
         </form>
     </div>
 
