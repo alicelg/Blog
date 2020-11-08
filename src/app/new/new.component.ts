@@ -23,7 +23,7 @@ export class NewComponent implements OnInit {
       ]),
       texto: new FormControl('', [
         Validators.required,
-        Validators.minLength(150)
+        /* Validators.minLength(150) */
       ]),
       autor: new FormControl('', [
         Validators.required,
@@ -50,12 +50,16 @@ export class NewComponent implements OnInit {
   }
 
   async onSubmit() {
+    if (this.formPost.valid) {
+      await this.postService.addPost(this.formPost.value, this.idPost);
+      console.log(this.formPost.value);
+      this.idPost++
 
-    await this.postService.addPost(this.formPost.value, this.idPost);
-    console.log(this.formPost.value);
-    this.idPost++
+      this.formPost.reset();
+    } else {
+      alert('Alguno de los campos no está relleno')
+    }
 
-    this.formPost.reset();
 
   }
 
