@@ -11,16 +11,23 @@
     <aside class="col-4">
 
         <p>Mira nuestros posts 📜</p>
-        <button class="d-block btn btn-outline-info m-2 ml-5 w-50" value="cultura" (click)="onClickCultura()"> 🎨
+        <button class="d-block btn btn-outline-dark m-2 ml-5 w-50" value="todos" (click)="onChangeCategory($event)">
+            🤩 Todos
+        </button>
+        <button class="d-block btn btn-outline-info m-2 ml-5 w-50" value="cultura" (click)="onChangeCategory($event)">
+            🎨
             Cultura
         </button>
-        <button class="d-block btn btn-outline-success m-2 ml-5 w-50" value="politica" (click)="onClickPolitica()"> 🗣
+        <button class="d-block btn btn-outline-success m-2 ml-5 w-50" value="politica"
+            (click)="onChangeCategory($event)"> 🗣
             Política
         </button>
-        <button class="d-block btn btn-outline-warning m-2 ml-5 w-50" value="economia" (click)="onClickEconomia()"> 💰
+        <button class="d-block btn btn-outline-warning m-2 ml-5 w-50" value="economia"
+            (click)="onChangeCategory($event)"> 💰
             Economía
         </button>
-        <button class="d-block btn btn-outline-danger m-2 ml-5 w-50" value="historia" (click)="onClickHistoria()"> 👣
+        <button class="d-block btn btn-outline-danger m-2 ml-5 w-50" value="historia"
+            (click)="onChangeCategory($event)"> 👣
             Historia
         </button>
         <br>
@@ -28,7 +35,7 @@
         <label> Categorias 🎨 🗣 💰 👣</label>
         <select (change)="onChangeCategory($event)" class="form-control w-50 ml-5">
 
-            <option value="todos">Todos</option>
+            <option value="todos">🤩 Todos</option>
             <option value="cultura"> 🎨 Cultura</option>
             <option value="politica"> 🗣 Política</option>
             <option value="economia"> 💰 Economía</option>
