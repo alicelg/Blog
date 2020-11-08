@@ -6,9 +6,6 @@
     margin: 0;
 }
 
-small{
-    font-size: 20px;
-}
 
 nav{
     background: #7C160C;
@@ -19,3 +16,18 @@ footer{
    
 }
 
+
+.enlace{
+    color: white;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.enlace:hover{
+    background: white;
+    color: #7C160C;
+    padding: 15px;
+}
