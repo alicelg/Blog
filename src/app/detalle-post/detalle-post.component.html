@@ -4,7 +4,8 @@
 
         <div class="d-flex mt-3 mb-5" *ngIf="postSelect">
 
-            <div class="ml-5"><img [src]="postSelect.imagen" alt="" width="300px" height="400px"> </div>
+            <div class="ml-5"><img [src]="postSelect.imagen" alt="" width="350px" height="400px">
+            </div>
             <div class="d-inline ml-5">
                 <p>Categoría: {{postSelect.categoria | uppercase}}</p>
                 <hr>
@@ -12,8 +13,8 @@
                 <h4 class="text-right"> Autor: 📝 {{postSelect.autor}}</h4>
                 <h6>Palabras Claves: {{postSelect.claves}}</h6>
                 <p class="text-justify">{{postSelect.texto}}</p>
-
             </div>
+
 
         </div>
 
