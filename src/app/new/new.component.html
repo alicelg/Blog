@@ -44,7 +44,8 @@
                 <label>Texto</label>
                 <!--                 <textarea cols="30" rows="5" class="form-control" formControlName="texto"></textarea>
  -->
-                <ckeditor required [editor]="Editor" data="<p>Hello, world!</p>" formControlName="texto"></ckeditor>
+                <ckeditor required [editor]="Editor" data="<p>Hello, world!</p>" formControlName="texto"
+                    (ready)="onReady($event)"></ckeditor>
 
                 <span class="text-danger"
                     *ngIf="formPost.get('texto').hasError('required') && formPost.get('texto').touched"> El texto es

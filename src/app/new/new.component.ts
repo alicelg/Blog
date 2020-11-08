@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../services/post.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { UploadAdapter } from './uploadadapter.class';
 
 
 @Component({
@@ -58,4 +59,14 @@ export class NewComponent implements OnInit {
 
   }
 
+  /* esto sirve para subir las fotos al textarea - editor de texto */
+  onReady(eventData) {
+    eventData.plugins.get('FileRepository').createUploadAdapter = function (loader) {
+      console.log(btoa(loader.file));
+      return new UploadAdapter(loader);
+    };
+  }
+
 }
+
+
