@@ -15,23 +15,15 @@
 
 <div class="row">
 
-    <div class="col-4 ml-5">
-
+    <div class="col-4 ml-5 d-none d-md-block">
         <p class="text-center"> Recuerda que nuestras categorias son: <br> 🎨 Cultura, 🗣 Política, 👣 Historia y 💰
             Economía.</p>
-
-
         <img src="../../assets/image/imagen.PNG" alt="" width="200" class="mt-2 ml-5">
-
-
-
-
     </div>
 
-    <div class="col-5 ml-5 mb-1">
+    <div class="col-md-5 ml-md-5 mb-1">
 
         <form [formGroup]="formPost" (ngSubmit)="onSubmit()">
-
             <div class="form-group">
                 <label>Título</label>
                 <input type="text" class="form-control" formControlName="titulo">
@@ -50,7 +42,7 @@
 
             <div class="form-group">
                 <label>Texto</label>
-                <input type="text" class="form-control" formControlName="texto">
+                <textarea class="form-control" formControlName="texto">
 
                 <span class="text-danger"
                     *ngIf="formPost.get('texto').hasError('required') && formPost.get('texto').touched"> El texto es
@@ -105,11 +97,7 @@
 
             </div>
 
-
-
-
             <input type="submit" value="Enviar" class="botonEnviar btn form-control">
-
         </form>
     </div>
 
@@ -118,7 +106,5 @@
             <p class="mt-5 text-secondary">Condiciones: Al publicar un post en esta comunidad, será de
                 uso publico. Así, los participantes podrán hacer uso del mismo, citandote como fuente.</p>
         </div>
-
     </div>
-
 </div>
