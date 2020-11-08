@@ -44,13 +44,15 @@
         <div class="row">
 
             <div class="col-5 card d-inline m-1" style="width: 18rem;" *ngFor="let post of arrPosts; let indice = index"
-                [routerLink]="['/blog', post.id]">
+                [routerLink]="['/blog', post.id]"
+                [ngClass]="{cultura: (post.categoria === 'cultura'), politica: (post.categoria === 'politica'), economia:(post.categoria === 'economia'), historia: (post.categoria ==='historia')}">
                 <p class="">{{post.categoria | uppercase}}</p>
                 <img [src]=" post.imagen" class="card-img-top" alt="" width="100" height="200">
                 <div class="card-body">
                     <h3 class="card-title">{{post.titulo}}</h3>
                     <h5 class="text-right"> 📝 {{post.autor}}</h5>
-                    <p class="card-text"> {{post.texto}}</p>
+                    <!--  <p class="card-text"> {{post.texto}}</p> -->
+                    <p class="card-text text-secondary text-justify">Palabras claves: {{post.claves}}</p>
                     <p class="mr-3">Publicado: {{post.fecha}}</p>
                     <button class="btn btn-outline-success form-control" (click)="onClickDelete(indice)"> Borrar
                     </button>
