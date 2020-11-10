@@ -12,8 +12,11 @@
             <h4 class="text-right"> Autor: 📝 {{postSelect.autor}}</h4>
             <h6>Palabras Claves: {{postSelect.claves}}</h6>
             <p class="text-justify" [innerHTML]="postSelect.texto"></p>
+
         </div>
+
+        <button class="btn btn-secondary" (click)="editPost(postSelect.id)">Editar</button>
     </div>
 
-    <button class="btn btn-secondary ml-3" (click)="editPost(postSelect.id)">Editar</button>
+
 </div>
