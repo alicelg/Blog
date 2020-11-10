@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post, PostService } from '../services/post.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class DetallePostComponent implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private postService: PostService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +32,10 @@ export class DetallePostComponent implements OnInit {
       this.postSelect = post
     })
 
+  }
+
+  editPost(idPost) {
+    this.router.navigate(['edit', idPost])
   }
 
 }

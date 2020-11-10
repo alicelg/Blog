@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { PostService } from '../services/post.service';
+import { Post, PostService } from '../services/post.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { UploadAdapter } from './uploadadapter.class';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -15,8 +16,14 @@ export class NewComponent implements OnInit {
   public Editor = ClassicEditor;
   formPost: FormGroup;
   idPost: number;
+  action: string;
+  postEdit: Post;
 
-  constructor(private postService: PostService) {
+  constructor(
+    private postService: PostService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router) {
+
     this.formPost = new FormGroup({
       titulo: new FormControl('', [
         Validators.required
@@ -44,18 +51,41 @@ export class NewComponent implements OnInit {
     this.idPost = JSON.parse(localStorage.getItem('posts')) ? (JSON.parse(localStorage.getItem('posts')).slice(-1)[0].id + 1) : 1;
     /*     console.log(this.idPost);
      */
+
+    if (this.router.url.includes('edit')) {
+      this.action = 'edit'
+    } else {
+      this.action = 'new'
+    }
   }
 
   ngOnInit(): void {
+    if (this.action === 'edit') {
+      this.postService.getById(Number(this.activatedRoute.snapshot.paramMap.get('postId')))
+        .then(postEdit => {
+          this.postEdit = postEdit
+          this.formPost.controls.titulo.setValue(postEdit.titulo);
+          this.formPost.controls.texto.setValue(postEdit.texto);
+          this.formPost.controls.autor.setValue(postEdit.autor);
+          this.formPost.controls.imagen.setValue(postEdit.imagen);
+          this.formPost.controls.fecha.setValue(postEdit.fecha)
+          this.formPost.controls.categoria.setValue(postEdit.categoria)
+          this.formPost.controls.claves.setValue(postEdit.claves)
+        })
+    }
   }
 
   async onSubmit() {
     if (this.formPost.valid) {
-      await this.postService.addPost(this.formPost.value, this.idPost);
-      console.log(this.formPost.value);
-      this.idPost++
-
-      this.formPost.reset();
+      if (this.action === 'new') {
+        await this.postService.addPost(this.formPost.value, this.idPost);
+        console.log(this.formPost.value);
+        this.idPost++
+        this.formPost.reset();
+      } else if (this.action === 'edit') {
+        await this.postService.editPost(this.formPost.value, this.postEdit.id)
+        this.formPost.reset();
+      }
     } else {
       alert('Alguno de los campos no está relleno')
     }

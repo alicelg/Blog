@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:postId', component: DetallePostComponent },
   { path: 'new', component: NewComponent },
+  { path: 'edit/:postId', component: NewComponent },
   { path: '**', component: ErrorComponent },
 
 ];
