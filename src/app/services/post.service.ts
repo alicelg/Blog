@@ -32,7 +32,6 @@ export class PostService {
 
   addPost(post: Post, id): Promise<any> {
     return new Promise((resolve, reject) => {
-      console.log(post);
       post.id = id;
       console.log(this.posts);
       this.posts.push(post);
@@ -40,7 +39,29 @@ export class PostService {
       localStorage.setItem('posts', JSON.stringify(this.posts));
       resolve(this.router.navigate(['blog', post.id]));
     })
+  }
 
+  editPost(post: Post, id): Promise<any> {
+    /* console.log(id); */
+    return new Promise((resolve, reject) => {
+      this.posts = JSON.parse(localStorage.getItem('posts'))
+
+      const postEditIndex = this.posts.findIndex(post => {
+        return post.id == id
+      })
+
+      this.posts[postEditIndex].titulo = post.titulo;
+      this.posts[postEditIndex].texto = post.texto;
+      this.posts[postEditIndex].autor = post.autor;
+      this.posts[postEditIndex].fecha = post.fecha;
+      this.posts[postEditIndex].categoria = post.categoria;
+      this.posts[postEditIndex].claves = post.claves;
+      this.posts[postEditIndex].imagen = post.imagen;
+
+      /* console.log(this.posts[postEditIndex]); */
+      localStorage.setItem('posts', JSON.stringify(this.posts));
+      resolve(this.router.navigate(['blog', id]));
+    })
   }
 
   getAllPosts(): Promise<Post[]> {
@@ -56,7 +77,6 @@ export class PostService {
       });
       resolve(arrFilterCategory);
     })
-
   }
 
   deletePost(pIndice: number) {
@@ -69,6 +89,4 @@ export class PostService {
       resolve(this.posts.find(post => post.id === pId))
     })
   }
-
-
 }
