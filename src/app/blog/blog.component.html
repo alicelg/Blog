@@ -53,7 +53,7 @@
     <div class="col-md-8">
         <div class="row">
 
-            <div class="col-md-4 mb-3" *ngFor="let post of arrPosts; let indice = index">
+            <div class="col-md-4 mb-3 mt-2" *ngFor="let post of arrPosts; let indice = index">
                 <div class="card d-flex mx-auto h-100" [routerLink]="['/blog', post.id]"
                     [ngClass]="{cultura: (post.categoria === 'cultura'), politica: (post.categoria === 'politica'), economia:(post.categoria === 'economia'), historia: (post.categoria ==='historia')}">
                     <p class="ml-2 mb-0">{{post.categoria | uppercase}}</p>
