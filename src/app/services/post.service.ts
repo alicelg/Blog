@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface Post {
   id: number;
@@ -18,7 +19,9 @@ export class PostService {
 
   posts: Post[];
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     /* localStorage */
     if (localStorage.getItem('posts')) {
       this.posts = JSON.parse(localStorage.getItem('posts'));
@@ -27,16 +30,15 @@ export class PostService {
     }
   }
 
-  addPost(post: Post, id): Promise<string> {
+  addPost(post: Post, id): Promise<any> {
     return new Promise((resolve, reject) => {
       console.log(post);
       post.id = id;
       console.log(this.posts);
       this.posts.push(post);
 
-
       localStorage.setItem('posts', JSON.stringify(this.posts));
-      resolve('Post añadido correctamente');
+      resolve(this.router.navigate(['blog', post.id]));
     })
 
   }
