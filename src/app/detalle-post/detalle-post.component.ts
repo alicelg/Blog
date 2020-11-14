@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { isNullOrUndefined } from 'util';
 import { Post, PostService } from '../services/post.service';
 
 @Component({
@@ -29,8 +30,17 @@ export class DetallePostComponent implements OnInit {
     const postId = Number(this.activateRoute.snapshot.paramMap.get('postId'))
     console.log(postId);
     this.postService.getById(postId).then(post => {
-      this.postSelect = post
+      /* this.postSelect = post */
+      if (post) {
+        this.postSelect = post
+      } else {
+        this.router.navigate(['error'])
+      }
     })
+    /*    .catch(error => {
+         alert(error)
+         this.router.navigate(['error'])
+       }) */
 
   }
 

@@ -87,6 +87,11 @@ export class PostService {
   getById(pId: number): Promise<Post> {
     return new Promise((resolve, reject) => {
       resolve(this.posts.find(post => post.id === pId))
+      /*   if (this.posts.find(post => post.id === pId)) {
+          resolve(this.posts.find(post => post.id === pId))
+        } else {
+          reject('post no encontrado')
+        } */
     })
   }
 }
