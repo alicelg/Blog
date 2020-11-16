@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { initPosts } from 'src/assets/data/init-posts';
 
 export interface Post {
   id: number;
@@ -22,11 +23,10 @@ export class PostService {
   constructor(
     private router: Router
   ) {
-    /* localStorage */
     if (localStorage.getItem('posts')) {
       this.posts = JSON.parse(localStorage.getItem('posts'));
     } else {
-      this.posts = [];
+      this.posts = initPosts;
     }
   }
 
